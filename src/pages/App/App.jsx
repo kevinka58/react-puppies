@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { getUser } from '../../utilities/users-service';
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
-import NewPuppy from "../NewPuppy/NewPuppy";
+import NewPuppy from "../AddPuppyPage/AddPuppyPage";
 import Puppies from "../Puppies/Puppies";
 import "./App.css";
 
