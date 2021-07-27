@@ -9,6 +9,11 @@ import "./App.css";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  
+  // async function handleAddPuppy (newPupData){
+  //   const newPup = await puppyAPI.create(newPupData);
+  //   setPuppies([...puppies, newPup])
+  // }
   return (
     <main className="App">
       {user ? (

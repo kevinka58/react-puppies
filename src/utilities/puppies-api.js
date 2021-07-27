@@ -26,3 +26,11 @@ async function sendRequest(url, method = 'GET', payload = null) {
 	if (res.ok) return res.json();
 	throw new Error('Bad Request');
 }
+
+export function create(pup) {
+	return fetch(BASE_URL, {
+		method: 'POST',
+		headers: {'content-type': 'application/json'},
+		body: JSON.stringify(pup)	
+	}).then(res => res.json())
+}

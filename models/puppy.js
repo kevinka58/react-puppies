@@ -7,6 +7,14 @@ const puppySchema = new Schema(
             type: String,
             required: true,
         },
+        breed: {
+            type: String,
+            required: true,
+        },
+        age: {
+            type: Number,
+            required: true,
+        }
     },
     {
         timestamps: true,
