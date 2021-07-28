@@ -3,17 +3,20 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { getUser } from '../../utilities/users-service';
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
-import NewPuppy from "../AddPuppyPage/AddPuppyPage";
 import Puppies from "../Puppies/Puppies";
+import * as puppyAPI from '../../utilities/puppies-api';
 import "./App.css";
+import AddPuppyPage from "../AddPuppyPage/AddPuppyPage";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [puppies, setPuppies] = useState('')
   
-  // async function handleAddPuppy (newPupData){
-  //   const newPup = await puppyAPI.create(newPupData);
-  //   setPuppies([...puppies, newPup])
-  // }
+  async function handleAddPuppy (newPupData){
+    const newPup = await puppyAPI.create(newPupData);
+    setPuppies([...puppies, newPup])
+  }
+
   return (
     <main className="App">
       {user ? (
@@ -21,7 +24,7 @@ export default function App() {
           <NavBar user={user} setUser={setUser}/>
           <Switch>
             <Route path="/puppies/new">
-              <NewPuppy />
+              <AddPuppyPage handleAddPuppy={handleAddPuppy}/>
             </Route>
             <Route path="/puppies">
               <Puppies />
