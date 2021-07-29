@@ -1,13 +1,21 @@
-
-export default function PuppyListItem({ menuPuppy }) {
+import React from 'react';
+import { Link } from 'react-router-dom';
+export default function PuppyListItem({ puppy }) {
     return (
         <div className="PuppyListItem">
-            <div className="name">{menuPuppy.name}</div> 
-            <div className="breed">{menuPuppy.breed}</div>
-            <div className="age">{menuPuppy.age}</div>
-            <div className="buy">
-                <button className="btn-sm">ADD</button>
+            <div>{puppy.name}</div> 
+            <div>{puppy.breed}</div>
+            <div>{puppy.age}</div>
+                <Link className='btn btn-xs btn-info'
+                to={
+                    {
+                        pathname: '/details',
+                        state: {puppy}
+                    }
+                }
+                >
+                    DETAILS
+                </Link>
             </div>
-        </div>
     )
 }

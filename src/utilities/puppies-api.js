@@ -18,6 +18,7 @@ async function sendRequest(url, method = 'GET', payload = null) {
 		options.body = JSON.stringify(payload);
 	}
 	const token = getToken();
+	console.log('token', token)
 	if (token) {
 		options.headers = options.headers || {};
 		options.headers.Authorization = `Bearer ${token}`;
@@ -28,9 +29,5 @@ async function sendRequest(url, method = 'GET', payload = null) {
 }
 
 export function create(pup) {
-	return fetch(BASE_URL, {
-		method: 'POST',
-		headers: {'content-type': 'application/json'},
-		body: JSON.stringify(pup)	
-	}).then(res => res.json())
+return sendRequest(BASE_URL,'POST', pup);
 }

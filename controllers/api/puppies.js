@@ -3,11 +3,12 @@ const Puppy = require('../../models/puppy');
 module.exports = {
 	index,
 	show,
+	create,
 };
 
 async function index(req, res) {
-	const puppies = await Puppy.find({}).sort('name').exec();
-	res.json(puppies);
+	const puppies = await Puppy.find({});
+	res.status(200).json(puppies);
 }
 
 async function show(req, res) {
