@@ -31,3 +31,11 @@ async function sendRequest(url, method = 'GET', payload = null) {
 export function create(pup) {
 return sendRequest(BASE_URL,'POST', pup);
 }
+
+export function update(updatedPuppy){
+	return sendRequest(`${BASE_URL}/${updatedPuppy._id}`, 'PUT', updatedPuppy)
+}
+
+export function deleteOne(id){
+	return sendRequest(`${BASE_URL}/${id}`, 'DELETE')
+}

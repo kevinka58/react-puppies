@@ -1,4 +1,4 @@
-import PuppyListItem from '../PuppyListItem/PuppyListItem'
+import PuppyListItem from '../../components/PuppyListItem/PuppyListItem'
 import React from 'react'
 
 export default function PuppyList(props) {
@@ -7,7 +7,10 @@ export default function PuppyList(props) {
         <h1>Puppy List</h1>  
         <div>
             {props.puppies.map(puppy => (
-                <PuppyListItem puppy={puppy} key={puppy._id} />
+                <PuppyListItem puppy={puppy} 
+                key={puppy._id}
+                handleDeletePuppy={props.handleDeletePuppy}
+                 />
             ))}
             </div>   
             </>   

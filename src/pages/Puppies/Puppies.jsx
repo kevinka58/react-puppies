@@ -1,7 +1,7 @@
 import * as usersService from '../../utilities/users-service';
-import PuppyList from '../../components/PuppyList/PuppyList'
+import PuppyList from '../PuppyList/PuppyList'
 
-function Puppies({ puppies }){
+function Puppies({ puppies, handleDeletePuppy}){
 
     async function handleCheckToken(){
         const expDate = await usersService.checkToken()
